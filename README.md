@@ -1,4 +1,4 @@
-# Imitation-apple-official-website
+# Imitation-apple-official-website/仿苹果官网
 # 中文
 一个在校大学生的练手项目，模仿Apple官网的一个项目。  
 如有任何侵权行为，请联系我删除。
