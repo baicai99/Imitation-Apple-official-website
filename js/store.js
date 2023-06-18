@@ -82,27 +82,35 @@ $(function () {
 
 
     document.addEventListener('scroll', (e) => {
+        //注册darker
+        var darker = document.querySelector('.darker')
+
         // 设定初始值
         h1.style.setProperty('--percentage', `0%`)
 
         //整个页面的高度
-        var darkerHeight = document.documentElement.scrollHeight
-
+        var scrollHright = document.documentElement.scrollHeight
         //darker的高度
         var darkerScorllHeight = document.querySelector('.darker').scrollHeight;
-
         //darker距离顶部的高度
         var darkerOffsetTop = document.querySelector('.darker').offsetTop;
         //darker距离底部
         //整个页面的高度-项目高度-距离顶部的高度
-        var darkerbottom = darkerHeight - darkerScorllHeight - darkerOffsetTop
+        var darkerbottom = scrollHright - darkerScorllHeight - darkerOffsetTop
+
         // console.log(document.documentElement.scrollHeight);//整个页面的高度
         // console.log(document.documentElement.clientHeight);//当前页面的高度
         // console.log(document.documentElement.scrollTop);//已滚动的
+
+        //darker开始位置
+        // console.log(window.scrollY - darkerOffsetTop + "px");
+        var darkerStart = window.scrollY - darkerOffsetTop
+        // darker结束的位置
+        // console.log(window.scrollY - darkerbottom - darkerOffsetTop + "px");
+        var darkerEnd = window.scrollY - darkerbottom - darkerOffsetTop
+
         // 屏幕滚动的百分比
         var scrolled = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-        // console.log(darkerScorllHeight);
-
 
         // 当前项目的百分比
         var scrollproject = (document.documentElement.scrollTop - darkerOffsetTop) / (darkerScorllHeight - document.documentElement.clientHeight + darkerbottom);
